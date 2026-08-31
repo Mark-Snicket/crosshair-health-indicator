@@ -5,7 +5,9 @@
     "text.autoconfig.crosshair-health-indicator.option.displayHealthInHearts": "Display health in hearts",
     "text.autoconfig.crosshair-health-indicator.option.alwaysShow": "Show health in all Gamemodes",
     "text.autoconfig.crosshair-health-indicator.option.textColor": "Color of the displayed health",
-    "text.autoconfig.crosshair-health-indicator.option.preciseHealth": "Show precise health",
+    "text.autoconfig.crosshair-health-indicator.option.decimalPlaces": "Decimal places",
+    "text.autoconfig.crosshair-health-indicator.option.xOffset": "Horizontal offset",
+    "text.autoconfig.crosshair-health-indicator.option.yOffset": "Vertical offset",
 
     "text.autoconfig.crosshair-health-indicator.option.warningColor": "Change color under a certain amount of health",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.enableWarningColor": "Enable",
