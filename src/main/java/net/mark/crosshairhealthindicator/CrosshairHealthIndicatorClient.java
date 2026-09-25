@@ -34,8 +34,8 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
         if (!shouldRender(minecraft)) return;
 
-        int x = (graphics.guiWidth() - 15) / 2 + 8;
-        int y = (graphics.guiHeight() - 15) / 2 + 13;
+        int x = ((graphics.guiWidth() - 15) / 2 + 8) + config.positionModification.offsetX;
+        int y = ((graphics.guiHeight() - 15) / 2 + 13) + config.positionModification.offsetY;
         int color = getColor(minecraft);
 
         String text = config.displayHealthInHearts ? getPlayerHeartsAsFormattedString(minecraft.player) : getPlayerHealthAsFormattedString(minecraft.player);
