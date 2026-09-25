@@ -7,6 +7,10 @@
     "text.autoconfig.crosshair-health-indicator.option.textColor": "Color of the displayed health",
     "text.autoconfig.crosshair-health-indicator.option.preciseHealth": "Show precise health",
 
+    "text.autoconfig.crosshair-health-indicator.option.positionModification": "Change Position on Screen",
+    "text.autoconfig.crosshair-health-indicator.option.positionModification.offsetX": "Horizontal offset",
+    "text.autoconfig.crosshair-health-indicator.option.positionModification.offsetY": "Vertical offset",
+
     "text.autoconfig.crosshair-health-indicator.option.warningColor": "Change color under a certain amount of health",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.enableWarningColor": "Enable",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.warningColor": "Warning color",
