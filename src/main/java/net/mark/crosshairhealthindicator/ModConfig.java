@@ -17,6 +17,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.ColorPicker
     public int textColor = TEXT_COLOR_DEFAULT;
 
+    public boolean preciseHealth = true;
 
     @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
     PositionModification positionModification = new PositionModification();

@@ -72,6 +72,11 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
     public static String getPlayerHealthAsFormattedString(LocalPlayer player) {
         float health = player.getHealth();
 
+        if (!config.preciseHealth) {
+            if (health % 1 >= 0) health++; // always round up, as minecraft does with hearts
+            return String.valueOf((int) health);
+        }
+
         if (health >= 10) {
             return String.valueOf(Math.round(health));
         }
@@ -80,7 +85,14 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
     }
 
     public static String getPlayerHeartsAsFormattedString(LocalPlayer player) {
+        float health = player.getHealth();
         float hearts = player.getHealth() / 2; // / 2 to get playerHealth in hearts
+
+        if (!config.preciseHealth) {
+            if (health % 1 >= 0) health = (int) health + 1; // always round up, as minecraft does with hearts
+            if (health % 2 == 1) return String.valueOf(health / 2); // return float if uneven
+            return String.valueOf((int) health / 2);
+        }
 
         if (hearts >= 10) {
             return String.valueOf(Math.round(hearts));
