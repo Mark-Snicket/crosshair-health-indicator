@@ -38,7 +38,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         int y = ((graphics.guiHeight() - 15) / 2 + 13 + config.positionModification.offsetY);
         int color = getColor(minecraft);
 
-        String text = config.displayHealthInHearts ? getPlayerHeartsAsFormattedString(minecraft.player) : getPlayerHealthAsFormattedString(minecraft.player);
+        String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
 
         graphics.drawCenteredString(
                 minecraft.font,
@@ -68,9 +68,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         return 0xFF000000 | config.textColor;
     }
 
-    public static String getPlayerHealthAsFormattedString(LocalPlayer player) {
-        float health = player.getHealth();
-
+    public static String getHealthAsFormattedString(float health) {
         if (!config.preciseHealth) {
             health = (float) Math.ceil(health); // always round up, as minecraft does with hearts
             return String.valueOf((int) health);
@@ -83,8 +81,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
     }
 
-    public static String getPlayerHeartsAsFormattedString(LocalPlayer player) {
-        float health = player.getHealth();
+    public static String getHeartsAsFormattedString(float health) {
         float hearts = health / 2; // / 2 to get playerHealth in hearts
 
         if (!config.preciseHealth) {
