@@ -46,6 +46,7 @@ public class ModConfig implements ConfigData {
     public static class AbsorptionHandling implements ConfigData {
         public boolean addAbsorptionToTotal = false;
         public boolean createDisplayForAbsorption = true;
+        public boolean showWhenZero = false;
 
         @ConfigEntry.Gui.Excluded
         public static final int ABSORPTION_COLOR_DEFAULT = 0xD4AF37;
@@ -54,6 +55,5 @@ public class ModConfig implements ConfigData {
 
         public int offsetX = 0;
         public int offsetY = 10;
-        public boolean showWhenZero = false;
     }
 }
