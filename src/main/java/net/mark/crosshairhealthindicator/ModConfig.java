@@ -15,7 +15,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.Excluded
     public static final int TEXT_COLOR_DEFAULT = 0xFFFFFF;
     @ConfigEntry.ColorPicker
-    public int textColor = TEXT_COLOR_DEFAULT;
+    public int color = TEXT_COLOR_DEFAULT;
 
     public boolean preciseHealth = true;
 
@@ -35,7 +35,7 @@ public class ModConfig implements ConfigData {
         @ConfigEntry.Gui.Excluded
         public static final int WARNING_COLOR_DEFAULT = 0xFF0000;
         @ConfigEntry.ColorPicker
-        public int warningColor = WARNING_COLOR_DEFAULT;
+        public int color = WARNING_COLOR_DEFAULT;
 
         public int changeColorBelowHealth = 6;
     }
@@ -44,14 +44,14 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject()
     AbsorptionHandling absorptionHandling = new AbsorptionHandling();
     public static class AbsorptionHandling implements ConfigData {
-        public boolean addAbsorptionToTotal = false;
-        public boolean createDisplayForAbsorption = true;
+        public boolean addToTotal = false;
+        public boolean createDisplay = true;
         public boolean showWhenZero = false;
 
         @ConfigEntry.Gui.Excluded
         public static final int ABSORPTION_COLOR_DEFAULT = 0xD4AF37;
         @ConfigEntry.ColorPicker
-        public int absorptionColor = ABSORPTION_COLOR_DEFAULT;
+        public int color = ABSORPTION_COLOR_DEFAULT;
 
         public int offsetX = 0;
         public int offsetY = 10;
