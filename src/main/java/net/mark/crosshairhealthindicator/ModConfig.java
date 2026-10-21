@@ -44,7 +44,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject()
     AbsorptionHandling absorptionHandling = new AbsorptionHandling();
     public static class AbsorptionHandling implements ConfigData {
-        public boolean addAbsorptionToTotal = true;
+        public boolean addAbsorptionToTotal = false;
         public boolean createDisplayForAbsorption = true;
 
         @ConfigEntry.Gui.Excluded

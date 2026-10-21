@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.GameType;
 
@@ -38,6 +37,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         int y = ((graphics.guiHeight() - 15) / 2 + 13 + config.positionModification.offsetY);
         int color = getColor(minecraft);
 
+        float health = minecraft.player.getHealth() + (config.absorptionHandling.addAbsorptionToTotal ? minecraft.player.getAbsorptionAmount() : 0);
         String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
 
         graphics.drawCenteredString(
@@ -46,6 +46,21 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
                 x, y,
                 color
         );
+
+        if (config.absorptionHandling.createDisplayForAbsorption) {
+            float absorption = minecraft.player.getAbsorptionAmount();
+            if (config.absorptionHandling.showWhenZero || absorption > 0) {
+                String absorptionText = config.displayHealthInHearts ? getHeartsAsFormattedString(absorption) : getHealthAsFormattedString(absorption);
+
+                graphics.drawCenteredString(
+                        minecraft.font,
+                        absorptionText,
+                        x + config.absorptionHandling.offsetX,
+                        y + config.absorptionHandling.offsetY,
+                        0xFF000000 | config.absorptionHandling.absorptionColor
+                );
+            }
+        }
     }
 
     private static boolean shouldRender(Minecraft minecraft) {
