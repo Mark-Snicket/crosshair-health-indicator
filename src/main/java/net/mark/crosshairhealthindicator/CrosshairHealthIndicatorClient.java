@@ -22,7 +22,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
         HudElementRegistry.attachElementAfter(
                 VanillaHudElements.CROSSHAIR,
-                Identifier.fromNamespaceAndPath(MOD_ID, "crosshair"),
+                Identifier.fromNamespaceAndPath(MOD_ID, "crosshair-health"),
                 CrosshairHealthIndicatorClient::renderIndicator
         );
     }
