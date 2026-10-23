@@ -37,6 +37,20 @@ public class ModConfig implements ConfigData {
         @ConfigEntry.ColorPicker
         public int warningColor = WARNING_COLOR_DEFAULT;
 
-        public int changeColorBelowHealth = 6;
+
+    @ConfigEntry.Gui.CollapsibleObject()
+    AbsorptionHandling absorptionHandling = new AbsorptionHandling();
+    public static class AbsorptionHandling implements ConfigData {
+        public boolean addToTotal = false;
+        public boolean createDisplay = true;
+        public boolean showWhenZero = false;
+
+        @ConfigEntry.Gui.Excluded
+        public static final int ABSORPTION_COLOR_DEFAULT = 0xD4AF37;
+        @ConfigEntry.ColorPicker
+        public int color = ABSORPTION_COLOR_DEFAULT;
+
+        public int offsetX = 0;
+        public int offsetY = 10;
     }
 }
