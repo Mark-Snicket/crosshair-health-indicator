@@ -83,28 +83,31 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
     public static String getHealthAsFormattedString(float health) {
         if (!config.preciseHealth) {
-            if (health % 1 >= 0) health++; // always round up, as minecraft does with hearts
-            return String.valueOf((int) health);
+            return String.valueOf((int) Math.ceil(health)); // cast to int to strip decimals
         }
 
-        if (health >= 10) {
+        if (health >= 9.95) {
             return String.valueOf(Math.round(health));
         }
-        return String.valueOf((float) (Math.round(health * 10)) / 10); // strips health down to a single decimal digit
+        return String.format("%.1f", health);
 
     }
 
     public static String getHeartsAsFormattedString(float health) {
         if (!config.preciseHealth) {
-            if (health % 1 >= 0) health = (int) health + 1; // always round up, as minecraft does with hearts
-            if (health % 2 == 1) return String.valueOf(health / 2); // return float if uneven
-            return String.valueOf((int) health / 2);
+            float roundedUpHealth = (float) Math.ceil(health);
+
+            // strip decimals if hearts are even
+            if (roundedUpHealth % 2 == 0) {
+                return String.valueOf((int) roundedUpHealth / 2);
+            } else {
+                return String.valueOf(roundedUpHealth / 2);
+            }
         }
 
-        if (hearts >= 10) {
-            return String.valueOf(Math.round(hearts));
+        if (health / 2 >= 9.95) {
+            return String.valueOf(Math.round(health / 2));
         }
-        return String.valueOf((float) (Math.round(hearts * 10)) / 10); // strips hearts down to a single decimal digit
-
+        return String.format("%.1f", health / 2);
     }
 }
