@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.GameType;
 
@@ -38,7 +37,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         int y = ((graphics.guiHeight() - 15) / 2 + 13) + config.positionModification.offsetY;
         int color = getColor(minecraft);
 
-        String text = config.displayHealthInHearts ? getPlayerHeartsAsFormattedString(minecraft.player) : getPlayerHealthAsFormattedString(minecraft.player);
+        String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
 
         graphics.drawCenteredString(
                 minecraft.font,
@@ -56,7 +55,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         return minecraft.player.gameMode() == GameType.SURVIVAL || minecraft.player.gameMode() == GameType.ADVENTURE;
     }
 
-    private static int getColor(Minecraft minecraft) {
+    private static int getIndicatorColor(String healthString) {
         if (config.warningColor.enableWarningColor) {
             assert minecraft.player != null;
             float health = Math.round(minecraft.player.getHealth() * 10) / 10.0f; // round as in getPlayerHealthAsFormattedString()
@@ -84,10 +83,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
     }
 
-    public static String getPlayerHeartsAsFormattedString(LocalPlayer player) {
-        float health = player.getHealth();
-        float hearts = health / 2; // / 2 to get playerHealth in hearts
-
+    public static String getHeartsAsFormattedString(float health) {
         if (!config.preciseHealth) {
             if (health % 1 >= 0) health = (int) health + 1; // always round up, as minecraft does with hearts
             if (health % 2 == 1) return String.valueOf(health / 2); // return float if uneven
