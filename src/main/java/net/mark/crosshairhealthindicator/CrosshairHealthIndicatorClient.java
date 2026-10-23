@@ -33,9 +33,8 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
 
         if (!shouldRender(minecraft)) return;
 
-        int x = ((graphicsExtractor.guiWidth() - 15) / 2 + 2) + config.positionModification.offsetX;
-        int y = ((graphicsExtractor.guiHeight() - 15) / 2 + 13 + config.positionModification.offsetY);
-        int color = getColor(minecraft);
+        int x = ((graphicsExtractor.guiWidth() - 15) / 2 + 8) + config.positionModification.offsetX;
+        int y = ((graphicsExtractor.guiHeight() - 15) / 2 + 13) + config.positionModification.offsetY;
 
         float health = minecraft.player.getHealth() + (config.absorptionHandling.addToTotal ? minecraft.player.getAbsorptionAmount() : 0);
         String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
@@ -44,7 +43,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
                 minecraft.font,
                 text,
                 x, y,
-                color
+                0xFF000000 | getIndicatorColor(text)
         );
 
         if (config.absorptionHandling.createDisplay) {
@@ -71,16 +70,15 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         return minecraft.player.gameMode() == GameType.SURVIVAL || minecraft.player.gameMode() == GameType.ADVENTURE;
     }
 
-    private static int getColor(Minecraft minecraft) {
+    private static int getIndicatorColor(String healthString) {
         if (config.warningColor.enableWarningColor) {
-            assert minecraft.player != null;
-            float health = Math.round(minecraft.player.getHealth() * 10) / 10.0f; // round as in getPlayerHealthAsFormattedString()
+            float health = Float.parseFloat(healthString);
 
-            if (health <= config.warningColor.changeColorBelowHealth) {
-                return 0xFF000000 | config.warningColor.warningColor;
+            if (health <= config.warningColor.useColorBelow) {
+                return config.warningColor.color;
             }
         }
-        return 0xFF000000 | config.textColor;
+        return config.color;
     }
 
     public static String getHealthAsFormattedString(float health) {
