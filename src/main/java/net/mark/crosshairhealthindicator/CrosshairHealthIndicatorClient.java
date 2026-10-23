@@ -37,6 +37,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         int y = ((graphics.guiHeight() - 15) / 2 + 13) + config.positionModification.offsetY;
         int color = getColor(minecraft);
 
+        float health = minecraft.player.getHealth() + (config.absorptionHandling.addToTotal ? minecraft.player.getAbsorptionAmount() : 0);
         String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
 
         graphics.drawCenteredString(
@@ -45,6 +46,21 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
                 x, y,
                 color
         );
+
+        if (config.absorptionHandling.createDisplay) {
+            float absorption = minecraft.player.getAbsorptionAmount();
+            if (config.absorptionHandling.showWhenZero || absorption > 0) {
+                String absorptionText = config.displayHealthInHearts ? getHeartsAsFormattedString(absorption) : getHealthAsFormattedString(absorption);
+
+                graphics.drawCenteredString(
+                        minecraft.font,
+                        absorptionText,
+                        x + config.absorptionHandling.offsetX,
+                        y + config.absorptionHandling.offsetY,
+                        0xFF000000 | config.absorptionHandling.color
+                );
+            }
+        }
     }
 
     private static boolean shouldRender(Minecraft minecraft) {
