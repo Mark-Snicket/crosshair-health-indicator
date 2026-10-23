@@ -14,5 +14,5 @@
     "text.autoconfig.crosshair-health-indicator.option.warningColor": "Change color under a certain amount of health",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.enableWarningColor": "Enable",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.warningColor": "Warning color",
-    "text.autoconfig.crosshair-health-indicator.option.warningColor.changeColorBelowHealth": "Change color when health drops below or at"
+    "text.autoconfig.crosshair-health-indicator.option.warningColor.changeColorBelowHealth": "Change color when health drops to or below"
 }
