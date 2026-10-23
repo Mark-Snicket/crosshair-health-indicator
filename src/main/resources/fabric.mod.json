@@ -8,9 +8,9 @@
         "Mark Snicket"
     ],
     "contact": {
-        "homepage": "https://modrinth.com/mod/render-distance-cycler",
-        "sources": "https://github.com/Mark-Snicket/renderdistancecycler/",
-        "issues": "https://github.com/Mark-Snicket/renderdistancecycler/issues/"
+        "homepage": "https://modrinth.com/mod/crosshair-health-indicator",
+        "sources": "https://github.com/Mark-Snicket/crosshair-health-indicator/",
+        "issues": "https://github.com/Mark-Snicket/crosshair-health-indicator/issues/"
     },
     "license": "MIT",
     "icon": "assets/crosshair-health-indicator/icon.png",
@@ -36,7 +36,7 @@
         "modmenu": {
             "update_checker": true,
             "links": {
-                "modmenu.modrinth": "https://modrinth.com/mod/render-distance-cycler",
+                "modmenu.modrinth": "https://modrinth.com/mod/crosshair-health-indicator",
                 "modmenu.discord": "https://discord.gg/hHMrX2GjzM"
             }
         }
