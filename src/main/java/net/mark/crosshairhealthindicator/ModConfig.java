@@ -28,7 +28,7 @@ public class ModConfig implements ConfigData {
     }
 
 
-    @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
+    @ConfigEntry.Gui.CollapsibleObject()
     WarningColor warningColor = new WarningColor();
 
     public static class WarningColor implements ConfigData {
