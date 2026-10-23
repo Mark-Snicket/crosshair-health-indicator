@@ -15,7 +15,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.Excluded
     public static final int TEXT_COLOR_DEFAULT = 0xFFFFFF;
     @ConfigEntry.ColorPicker
-    public int textColor = TEXT_COLOR_DEFAULT;
+    public int color = TEXT_COLOR_DEFAULT;
 
     public boolean preciseHealth = true;
 
@@ -35,9 +35,9 @@ public class ModConfig implements ConfigData {
         @ConfigEntry.Gui.Excluded
         public static final int WARNING_COLOR_DEFAULT = 0xFF0000;
         @ConfigEntry.ColorPicker
-        public int warningColor = WARNING_COLOR_DEFAULT;
+        public int color = WARNING_COLOR_DEFAULT;
 
-        public int changeColorBelowHealth = 6;
+        public float useColorBelow = 6.0f;
     }
 
 

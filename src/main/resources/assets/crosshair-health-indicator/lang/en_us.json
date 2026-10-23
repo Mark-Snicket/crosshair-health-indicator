@@ -4,7 +4,7 @@
     "text.autoconfig.crosshair-health-indicator.option.enableMod": "Enable the mod",
     "text.autoconfig.crosshair-health-indicator.option.displayHealthInHearts": "Display health in hearts",
     "text.autoconfig.crosshair-health-indicator.option.alwaysShow": "Show health in all Gamemodes",
-    "text.autoconfig.crosshair-health-indicator.option.textColor": "Color of the displayed health",
+    "text.autoconfig.crosshair-health-indicator.option.color": "Color of the displayed health",
     "text.autoconfig.crosshair-health-indicator.option.preciseHealth": "Show precise health",
 
     "text.autoconfig.crosshair-health-indicator.option.positionModification": "Change Position on Screen",
@@ -13,6 +13,6 @@
 
     "text.autoconfig.crosshair-health-indicator.option.warningColor": "Change color under a certain amount of health",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.enableWarningColor": "Enable",
-    "text.autoconfig.crosshair-health-indicator.option.warningColor.warningColor": "Warning color",
-    "text.autoconfig.crosshair-health-indicator.option.warningColor.changeColorBelowHealth": "Change color when health drops to or below"
+    "text.autoconfig.crosshair-health-indicator.option.warningColor.color": "Warning color",
+    "text.autoconfig.crosshair-health-indicator.option.warningColor.useColorBelow": "Use color when number drops to or below"
 }
