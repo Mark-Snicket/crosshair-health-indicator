@@ -14,7 +14,7 @@
     "text.autoconfig.crosshair-health-indicator.option.warningColor": "Change color under a certain amount of health",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.enableWarningColor": "Enable",
     "text.autoconfig.crosshair-health-indicator.option.warningColor.color": "Warning color",
-    "text.autoconfig.crosshair-health-indicator.option.warningColor.useColorBelow": "Use color when number drops to or below"
+    "text.autoconfig.crosshair-health-indicator.option.warningColor.useColorBelow": "Use color when number drops to or below",
 
     "text.autoconfig.crosshair-health-indicator.option.absorptionHandling": "Change how Absorption is handled",
     "text.autoconfig.crosshair-health-indicator.option.absorptionHandling.addToTotal": "Add Absorption to the Indicator",
