@@ -86,7 +86,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
             return String.valueOf((int) Math.ceil(health)); // cast to int to strip decimals
         }
 
-        if (health >= 10) {
+        if (health >= 9.95) {
             return String.valueOf(Math.round(health));
         }
         return String.format("%.1f", health);
@@ -105,7 +105,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
             }
         }
 
-        if (health / 2 >= 10) {
+        if (health / 2 >= 9.95) {
             return String.valueOf(Math.round(health / 2));
         }
         return String.format("%.1f", health / 2);
