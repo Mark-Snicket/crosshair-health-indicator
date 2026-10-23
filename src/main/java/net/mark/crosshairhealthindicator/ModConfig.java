@@ -37,7 +37,7 @@ public class ModConfig implements ConfigData {
         @ConfigEntry.ColorPicker
         public int color = WARNING_COLOR_DEFAULT;
 
-        public int changeColorBelowHealth = 6;
+        public float useColorBelow = 6.0f;
     }
 
 

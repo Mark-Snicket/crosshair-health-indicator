@@ -74,7 +74,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         if (config.warningColor.enableWarningColor) {
             float health = Float.parseFloat(healthString);
 
-            if (health <= config.warningColor.changeColorBelowHealth) {
+            if (health <= config.warningColor.useColorBelow) {
                 return config.warningColor.color;
             }
         }
