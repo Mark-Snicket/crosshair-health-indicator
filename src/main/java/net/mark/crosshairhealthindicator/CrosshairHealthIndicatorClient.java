@@ -40,7 +40,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
         float health = minecraft.player.getHealth() + (config.absorptionHandling.addToTotal ? minecraft.player.getAbsorptionAmount() : 0);
         String text = config.displayHealthInHearts ? getHeartsAsFormattedString(health) : getHealthAsFormattedString(health);
 
-        graphicsExtractor.text(
+        graphicsExtractor.centeredText(
                 minecraft.font,
                 text,
                 x, y,
