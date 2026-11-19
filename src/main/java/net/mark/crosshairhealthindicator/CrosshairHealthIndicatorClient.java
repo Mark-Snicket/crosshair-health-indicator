@@ -28,7 +28,7 @@ public class CrosshairHealthIndicatorClient implements ClientModInitializer {
     }
 
 
-    private static void renderIndicator(GuiGraphicsExtractor graphicsExtractor, DeltaTracker tracker) {
+    private static void renderIndicator(GuiGraphicsExtractor graphicsExtractor) {
         Minecraft minecraft = Minecraft.getInstance();
 
         if (!shouldRender(minecraft)) return;
